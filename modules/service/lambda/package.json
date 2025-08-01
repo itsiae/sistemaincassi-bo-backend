@@ -1,0 +1,25 @@
+{
+  "name": "siae-project-template-aws-lambda-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker build -t siae-project-template-aws-lambda-ts .",
+    "docker:run": "docker run -p 3000:3000 siae-project-template-aws-lambda-ts",
+    "docker:build:run": "npm run docker:build && npm run docker:run",
+    "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node22 --outfile=dist/index.js"
+  },
+  "dependencies": {
+    "@middy/core": "^6.3.2",
+    "@middy/http-event-normalizer": "^6.3.2",
+    "@middy/http-json-body-parser": "^6.4.1",
+    "ofetch": "^1.4.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.0.0",
+    "@aws-lambda-powertools/logger": "^2.23.0",
+    "@aws-lambda-powertools/tracer": "^2.23.0",
+    "@types/aws-lambda": "^8.10.150",
+    "esbuild": "^0.25.6",
+    "eslint": "^9.32.0"
+  }
+}

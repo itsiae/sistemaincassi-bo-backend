@@ -1,0 +1,4 @@
+yarn --cwd modules/service/src format
+yarn --cwd modules/service/src lint
+yarn --cwd modules/service/src test
+yarn --cwd modules/service/src knip

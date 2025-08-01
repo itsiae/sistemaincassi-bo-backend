@@ -1,0 +1,28 @@
+service: prova-offline
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  region: eu-west-1
+  environment:
+    LOG_LEVEL: INFO
+    SERVICE_NAME: my-service
+    NAMESPACE: my-namespace
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+    POWERTOOLS_DEV: 'true'
+    GITHUB_TOKEN: ''
+
+functions:
+  test:
+    handler: dist/index.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: false
+
+plugins:
+  - serverless-offline

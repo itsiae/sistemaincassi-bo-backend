@@ -1,0 +1,40 @@
+# *
+# * Repository Config
+# * ----------------------------------------------------------------
+# Variables used across the project to inject specific project
+# values
+#
+# Remember to fill this configuration and keep it updated.
+# This is used for building the project both locally and from
+# CI Pipeline.
+#
+
+# Repository Name
+repository_name: &repo_name siae-project-template-aws-lambda-ts
+
+# Project Name (Suggested < 10 chars)
+project_name: &proj_name siae-project-template
+
+region:
+  primary: eu-west-1
+  # failover-1: eu-central-1
+  # failover-2: eu-west-2
+
+# Default Tags for each region
+tags:
+  # Technicals
+  - key: Iac
+    value: terraform
+  - key: Repository
+    value: *repo_name
+  # Defaults
+  - key: Project
+    value: *proj_name
+  - key: CostCenter
+    value: CBAA00
+  - key: BusinessUnit
+    value: Music Department
+  - key: Availability
+    value: ordinary
+  - key: PrivacySensitive
+    value: "true"
