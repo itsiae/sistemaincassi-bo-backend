@@ -10,16 +10,13 @@
 #
 
 # Repository Name
-repository_name: &repo_name siae-project-template-aws-lambda-ts
-
+repository_name: &repo_name sistemaincassi-bo-backend
 # Project Name (Suggested < 10 chars)
-project_name: &proj_name siae-project-template
-
+project_name: &proj_name sistema-incassi
 region:
   primary: eu-west-1
   # failover-1: eu-central-1
   # failover-2: eu-west-2
-
 # Default Tags for each region
 tags:
   # Technicals

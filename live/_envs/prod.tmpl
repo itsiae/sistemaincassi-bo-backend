@@ -1,11 +1,8 @@
-env: &env 
-  prod 
-
+env: &env prod
 # stage-based tags
 tags:
   - key: Environment
     value: *env
-
 service:
   vpc:
     stage: $VPC_STAGE
@@ -19,12 +16,10 @@ service:
     environments:
       api_path: $API_PATH
       log_level: INFO
-      lambda_namespace: "siae-project-template"
-      lambda_service_name: "siae-project-template-aws-lambda-ts"
-
+      lambda_namespace: "sistema-incassi"
+      lambda_service_name: "sistemaincassi-bo-backend"
 integration:
   api_gateway:
     name: $INTEGRATION_API_GATEWAY
     path: $API_PATH
     auth_type: "NONE" # "NONE" | "AWS_IAM" | "CUSTOM" | "COGNITO_USER_POOLS"
-

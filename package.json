@@ -1,7 +1,7 @@
 {
-  "name": "siae-project-template-aws-lambda-ts",
+  "name": "sistemaincassi-bo-backend",
   "version": "1.0.0",
-  "repository": "https://github.com/itsiae/siae-project-template-aws-lambda-ts.git",
+  "repository": "https://github.com/itsiae/sistemaincassi-bo-backend",
   "private": true,
   "scripts": {
     "prepare": "husky .husky"
