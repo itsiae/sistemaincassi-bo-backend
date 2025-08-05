@@ -1,0 +1,28 @@
+name: 'CD Feature Plan and Deploy collaudo'
+
+on:
+  workflow_dispatch:
+  push:
+    tags: [ "COLLAUDO" ]
+
+permissions:
+  contents: write
+  id-token: write
+  checks: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    uses: itsiae/siae-gh-actions/.github/workflows/cd-terragrunt-plan-deploy.yaml@v2.1.0
+    name: 'Terragrunt Deploy'
+    secrets: inherit
+    with:
+      working_dir: live
+      environment: collaudo
+  
+  tag-management:
+    uses: itsiae/siae-gh-actions/.github/workflows/tagging-and-releasing-mgmt.yaml@v2.1.0
+    name: 'Create Release'
+    needs: [ deploy ]
+    secrets: inherit
+

@@ -1,0 +1,21 @@
+name: 'CD Feature Plan collaudo'
+ 
+on:
+  workflow_dispatch:
+  push:
+    tags: [ "PLAN-COLLAUDO" ]
+ 
+permissions:
+  contents: write
+  id-token: write
+  checks: write
+  pull-requests: write
+ 
+jobs:
+  plan:
+    uses: itsiae/siae-gh-actions/.github/workflows/terragrunt-plan.yaml@v2.1.0
+    name: 'Terragrunt Plan'
+    secrets: inherit
+    with:
+      working_dir: live
+      environment: collaudo

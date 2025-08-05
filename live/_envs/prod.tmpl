@@ -1,0 +1,30 @@
+env: &env 
+  prod 
+
+# stage-based tags
+tags:
+  - key: Environment
+    value: *env
+
+service:
+  vpc:
+    stage: $VPC_STAGE
+    security_group: $VPC_SG
+  cloudwatch:
+    logs_retention_days: 365
+  lambda:
+    lambda_memory: 1024
+    lambda_timeout: 60
+    lambda_runtime: "nodejs22.x"
+    environments:
+      api_path: $API_PATH
+      log_level: INFO
+      lambda_namespace: "siae-project-template"
+      lambda_service_name: "siae-project-template-aws-lambda-ts"
+
+integration:
+  api_gateway:
+    name: $INTEGRATION_API_GATEWAY
+    path: $API_PATH
+    auth_type: "NONE" # "NONE" | "AWS_IAM" | "CUSTOM" | "COGNITO_USER_POOLS"
+
